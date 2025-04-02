@@ -50,9 +50,9 @@ class Router
 
         //Utilizar el layout de acurdo a la url
 
-        $url_actual = $_SERVER['PATH_INFO'] ?? '/';
+        $currentUrl = strtok($_SERVER['REQUEST_URI'], '?') ?? '/';
 
-        if(str_contains($url_actual,'admin')){
+        if(str_contains( $currentUrl,'admin')){
             include_once __DIR__ . '/views/admin-layout.php';
         }else{
             include_once __DIR__ . '/views/layout.php';
